@@ -7,7 +7,7 @@ import psycopg2
 consumer = KafkaConsumer('shrtest',
                          group_id='shr-group',
                          auto_offset_reset="latest",
-                         bootstrap_servers=['kafka-35faac3e-shreenath-7691.aivencloud.com:15964'],
+                         bootstrap_servers=['kafka:port'],
                          security_protocol="SSL",
                          ssl_cafile="ca.pem",
                          ssl_certfile="service.cert",
@@ -26,7 +26,7 @@ for message in consumer:
     consumer.metrics()
     #Store the result in PostGreSql
     try:
-        uri = "postgres://avnadmin:tlksynnm2tkab8az@pg-37a8c13d-shreenath-7691.aivencloud.com:15962/defaultdb?sslmode=require"
+        uri = "postgres://"
         db_conn = psycopg2.connect(uri)
         c = db_conn.cursor(cursor_factory=RealDictCursor)
         inputval = servicedet['details'];#{'status':'active','stdate':'12-01-2019','enddate':'01-01-9999'}
