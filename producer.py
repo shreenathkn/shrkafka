@@ -6,7 +6,7 @@ import sys
 servid=sys.argv[1]
 print('arg',servid)
 
-producer = KafkaProducer(bootstrap_servers=['kafka-35faac3e-shreenath-7691.aivencloud.com:15964'],
+producer = KafkaProducer(bootstrap_servers=['kafka:port'],
 security_protocol="SSL",
 ssl_cafile="ca.pem",
 ssl_certfile="service.cert",
